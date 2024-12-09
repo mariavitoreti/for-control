@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: REPRESENTANTE DE SALA
+    Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
+    Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
+    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de cada candidato a representante de sala.
+    */
+
+    // ENTRADA
+    let candidato1 = prompt("Digite o nome do primeiro candidato:");
+    let candidato2 = prompt("Digite o nome do segundo candidato:");
+    let candidato3 = prompt("Digite o nome do terceiro candidato:");
+    let totalAlunos = Number(prompt("Quantos alunos vão votar?"));
+
+    let votosCandidato1 = 0;
+    let votosCandidato2 = 0;
+    let votosCandidato3 = 0;
+
+    // PROCESSAMENTO
+    for (let i = 1; i <= totalAlunos; i++) {
+        let voto = prompt(`Aluno ${i}, digite o número do candidato em quem você vai votar:\n1 - ${candidato1}\n2 - ${candidato2}\n3 - ${candidato3}`);
+        
+        if (voto == 1) {
+            votosCandidato1++;
+        } else if (voto == 2) {
+            votosCandidato2++;
+        } else if (voto == 3) {
+            votosCandidato3++;
+        } else {
+            alert("Voto inválido, escolha um número entre 1, 2 ou 3.");
+            i--;
+        }
+    }
+
+    let percentualCandidato1 = (votosCandidato1 / totalAlunos) * 100;
+    let percentualCandidato2 = (votosCandidato2 / totalAlunos) * 100;
+    let percentualCandidato3 = (votosCandidato3 / totalAlunos) * 100;
+
+    // SAÍDA
+    document.write(`O ${candidato1} recebeu ${votosCandidato1} votos (${percentualCandidato1.toFixed(2)}%)<br>
+                    O ${candidato2} recebeu ${votosCandidato2} votos (${percentualCandidato2.toFixed(2)}%)<br>
+                    O ${candidato3} recebeu ${votosCandidato3} votos (${percentualCandidato3.toFixed(2)}%)<br>`);
+</script>
